@@ -1,0 +1,9 @@
+<!--pages/01/user.wxml-->
+<text>pages/01/user.wxml</text>
+
+<input type="text" value="{{user.phone}}" 
+placeholder="user name" data-xx="phone" bindinput="bv" />
+<input type="password" value="{{user.password}}" 
+placeholder="password" data-xx="password" bindinput="bv" />
+
+<button bindtap="login">LOGIN</button>
