@@ -1,6 +1,6 @@
 
-const basicUrl = ''
 
+const basicUrl = 'http://localhost:555/'
 
 import {DataBus} from './DataBus'
 const DB = new DataBus()
@@ -18,7 +18,7 @@ export class Net{
       const ans = await this._post(url, data)
       // console.log('post', ans.message, typeof ans)
       if(!ans) throw Error( ans )
-      // if(!ans.success) throw Error( ans.msg )
+      // if(!ans.success) throw Error( ans )
       return ans
     }
     catch(e){
@@ -58,8 +58,8 @@ export class Net{
       const tt = DB.getToken()
       if (tt) {
         header['x-access-token'] = tt
-        header['Authorization'] = tt && tt.t
-        header['Cookie'] = tt && tt.s // 手动维护一个cookie
+        // header['Authorization'] = tt && tt.t
+        // header['Cookie'] = tt && tt.s // 手动维护一个cookie
       }
 
       console.log('header', header, tt)
@@ -70,7 +70,7 @@ export class Net{
         header,
         success(res) {
           // console.log('post check', url, header, res.header)
-          console.log('post check', url, res.header, tt)
+          console.log('post check', url, res.header, res.data)
           // DB.saveToken(res.header.Authorization, res.header['Set-Cookie']) // 保存token
           resolve(res.data)
         },
@@ -92,14 +92,25 @@ export class Net{
         title: '加载中',
       })
       // wx.hideLoading()
+
+      const header = {
+        'content-type': 'application/json', // 默认值
+        // 'Authorization': DB.getToken(),
+        // 'x-access-token': DB.getToken()
+      }
+      const tt = DB.getToken()
+      if (tt) {
+        header['x-access-token'] = tt
+        // header['Authorization'] = tt && tt.t
+        // header['Cookie'] = tt && tt.s // 手动维护一个cookie
+      }
+      console.log('发送的内容', header)
+
       wx.request({
         url,
         data,
         method: 'GET',
-        header: {
-          'content-type': 'application/json', // 默认值
-          'Authorization': DB.getToken()
-        },
+        header,
         success(res) {
           // console.log('get成功', res)
           resolve(res.data)
