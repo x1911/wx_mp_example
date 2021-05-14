@@ -18,7 +18,7 @@ export class Net{
       const ans = await this._post(url, data)
       // console.log('post', ans.message, typeof ans)
       if(!ans) throw Error( ans )
-      if(!ans.success) throw Error( ans.msg )
+      // if(!ans.success) throw Error( ans.msg )
       return ans
     }
     catch(e){
