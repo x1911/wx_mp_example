@@ -1,0 +1,10 @@
+<!--pages/reg/reg.wxml-->
+<text>pages/reg/reg.wxml</text>
+
+<image src="{{ user.avatar }}"></image>
+{{ user.name }}
+
+<input type="text" placeholder="phone" bindinput="pe" data-key="phone" />
+<input type="password" placeholder="pass" bindinput="pe" data-key="password" />
+
+<button bindtap="reg">reg</button>

@@ -1,0 +1,12 @@
+/* pages/list/list.wxss */
+
+.list{
+  /* height: 30px; */
+}
+
+.list image{
+  display: inline-block;
+  
+  width: 66vw;
+  height: 80px;
+}

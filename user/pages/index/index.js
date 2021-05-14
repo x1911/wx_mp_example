@@ -44,5 +44,36 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+
+  getUInfo(){
+    return new Promise( (result, _) => {
+      wx.getUserProfile({
+        desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          console.log(res)
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+          result()
+        }
+      })  // wx.getUser
+    })// return new Promiese
+  },
+
+  async reg(){
+    await this.getUInfo()
+    console.log('登录数据', this.data.userInfo )
+    const {nickName, avatarUrl} = this.data.userInfo
+    const d = JSON.stringify({
+      name: nickName,
+      avatar: avatarUrl
+    })
+    wx.redirectTo({
+      url: '/pages/reg/reg?d=' + d,
+    })
+  }  // reg
+
+
 })

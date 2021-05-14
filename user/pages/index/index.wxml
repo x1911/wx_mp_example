@@ -17,6 +17,14 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+
+<navigator url="/pages/01/user" open-type="redirect">
+<button>登录</button>
+</navigator>
+<button bindtap="reg">注册</button>
+
+
+
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>

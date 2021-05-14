@@ -1,6 +1,8 @@
+import { DataBus } from '../../utils/DataBus'
 import { Net } from '../../utils/Net'
 
 const NF = new Net()
+const DB = new DataBus()
 // pages/01/user.js
 Page({
 
@@ -18,9 +20,13 @@ Page({
     const {user} = this.data
     if(user.phone === '' || user.password === '') return NF.alert('未填写')
     const ans = await NF.post('s/login', this.data.user)
+    if(!ans) return
     NF.alert( '登录成功' )
-    // console.log('内容', user, ans.msg.token)
-    // DB.saveToken( ans.msg )
+    console.log('内容', user, ans.msg.token)
+    DB.saveToken( ans.msg )
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
   },
 
   async chkLogin(){

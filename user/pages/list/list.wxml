@@ -1,0 +1,11 @@
+<!--pages/list/list.wxml-->
+<!-- <text>pages/list/list.wxml</text> -->
+
+
+<view>
+  <view class="list" wx:for="{{ arr }}" wx:key="ID" 
+    data-id="{{ item.ID }}" bindtap="goDetail">
+    <image src="{{ item.cover }}" mode="aspectFill"></image>
+    {{ item.title }}
+  </view>
+</view>

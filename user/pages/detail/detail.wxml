@@ -1,0 +1,38 @@
+<!--pages/detail/detail.wxml-->
+<!-- <text>pages/detail/detail.wxml</text> -->
+
+
+<video src="{{ movie.video }}"></video>
+<image src="{{ movie.poster }}" mode="aspectFit" class="poster"></image>
+<text>
+  {{ movie.title }}
+
+  评分： {{ movie.rate }}
+
+  
+</text>
+
+
+评论：
+<view wx:for="{{ carr }}" wx:key="ID" class="cc">
+  <image src="{{ item.avatar }}" wx:if="{{ item.avatar}}"></image>
+  {{ item.name }} 在 {{ item.addTime }} 写下
+  <text>
+
+    {{ item.content }}
+
+  </text>
+</view>
+
+
+<textarea name="" id="" cols="30" rows="10" bindinput="cc"
+placeholder="请影评" class="ta"
+>
+
+</textarea>
+
+<button bindtap="submitComment">提交评论</button>
+
+<text>
+\n\n\n\n\n
+</text>
