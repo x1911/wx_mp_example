@@ -1,0 +1,19 @@
+<!--pages/map/map.wxml-->
+<text>pages/map/map.wxml</text>
+
+
+<map name=""
+latitude="{{lat}}"
+longitude="{{long}}"
+markers="{{ markers }}"
+polyline="{{ pl }}"
+show-compass
+show-location
+enable-3D
+enable-traffic
+enable-building
+enable-poi
+bindtap="touchMap"
+catchmarkertap="touchMark"
+>
+</map>
