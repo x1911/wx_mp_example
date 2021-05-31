@@ -5,7 +5,9 @@
     "pages/01/user",
     "pages/reg/reg",
     "pages/list/list",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/map/map",
+    "pages/audio/audio"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,6 +26,11 @@
         "text": "list"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
