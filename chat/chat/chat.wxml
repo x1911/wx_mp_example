@@ -1,0 +1,22 @@
+<!--pages/chat/chat.wxml-->
+<!-- <text>{{name}}</text> -->
+
+<scroll-view scroll-y id="txt">
+
+<view wx:for="{{ msg }}">
+  <image src="{{ item.avatar }}" 
+    style="width:30px; height:30px;"
+    mode="aspectFit"
+  ></image>
+  <text class="name"> {{ item.name }} </text>
+  <text class="msg"> {{ item.msg }} </text>
+</view>
+
+</scroll-view>
+
+<view class="chat">
+<input type="text" bindinput="chatTxt" value="{{ chat }}" /> 
+<button size="mini" bindtap="sendMsg">send</button>
+</view>
+
+

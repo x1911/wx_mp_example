@@ -1,0 +1,23 @@
+/* pages/chat/chat.wxss */
+
+
+#txt{
+  height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.msg{
+  color: #888;
+}
+
+.chat{
+  position: fixed;
+  bottom: 5vh;
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 -1px 10px #eee;
+}
+.chat input{
+  display: inline-block;
+  width: 80vw;
+}
