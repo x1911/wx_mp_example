@@ -12,7 +12,7 @@ export class Net{
     instance = this
   }
 
-  async post(url, data) {
+  async Post(url, data) {
     url = basicUrl + url
     try{
       const ans = await this._post(url, data)
@@ -26,7 +26,7 @@ export class Net{
     }
   }
   
-  async getFunc(url, data = {}) {
+  async GetFunc(url, data = {}) {
     url = basicUrl + url
     try{
       const ans = await this._get(url, data)
@@ -52,6 +52,7 @@ export class Net{
 
       let header = {
         'content-type': 'application/json',
+        'accept': 'application/json',
         // 'content-type': 'application/x-www-form-urlencoded', // 默认值
       }
 
@@ -94,6 +95,7 @@ export class Net{
       // wx.hideLoading()
 
       const header = {
+        'accept': 'application/json',
         'content-type': 'application/json', // 默认值
         // 'Authorization': DB.getToken(),
         // 'x-access-token': DB.getToken()
